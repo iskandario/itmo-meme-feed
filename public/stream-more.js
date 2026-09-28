@@ -77,7 +77,7 @@ class StreamMore extends HTMLElement {
     this.#controller = new AbortController();
     this.#setLoadingState();
     try {
-      const source = new URL(this.getAttribute('src') || '/api/feed', location.href);
+      const source = new URL(this.#endpoint(this.getAttribute('src') || '/api/feed'), location.href);
       source.searchParams.set('limit', '5');
       if (this.#firstBatch) source.searchParams.set('uploads', '1');
       const response = await fetch(source, { signal: this.#controller.signal });
@@ -407,10 +407,25 @@ class StreamMore extends HTMLElement {
   }
 
   async #fetchJson(url, options) {
-    const response = await fetch(url, options);
+    const response = await fetch(this.#endpoint(url), options);
     const data = await response.json();
     if (!response.ok) throw new Error(data.error || 'Не удалось загрузить данные.');
     return data;
+  }
+
+  #endpoint(path) {
+    if (location.hostname !== 'se.ifmo.ru') return path;
+    const endpoint = new URL('api.php', location.href);
+    if (path === '/api/feed') endpoint.searchParams.set('route', 'feed');
+    else if (path === '/api/posts') endpoint.searchParams.set('route', 'posts');
+    else {
+      const post = path.match(/^\/api\/posts\/(\d+)$/);
+      const profile = path.match(/^\/api\/profiles\/([a-z-]+)$/);
+      if (post) { endpoint.searchParams.set('route', 'post'); endpoint.searchParams.set('id', post[1]); }
+      else if (profile) { endpoint.searchParams.set('route', 'profile'); endpoint.searchParams.set('id', profile[1]); }
+      else return path;
+    }
+    return endpoint.href;
   }
 
   #readFile(file) {
