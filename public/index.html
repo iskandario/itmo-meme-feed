@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="description" content="Учебная бесконечная социальная лента на Web Streams">
+    <title>Лента мемов</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="stream-more.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Лента мемов — наверх">
+        <span class="brand__mark" aria-hidden="true">М</span>
+        <span>Лента мемов</span>
+      </a>
+      <nav class="top-actions" aria-label="Действия">
+        <span class="course">ИТМО · веб-разработка</span>
+        <a class="add-button" href="#/new">+ Добавить мем</a>
+        <a class="account" href="#/profile/iskandar" aria-label="Профиль Гарифуллина Искандара">ГИ</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <h1 class="visually-hidden">Бесконечная лента мемов</h1>
+      <stream-more src="/api/feed" batch-size="6" aria-label="Лента публикаций"></stream-more>
+    </main>
+
+    <footer>
+      <span>Учебный проект ИТМО · 2026</span>
+      <a href="https://memegen.link/" target="_blank" rel="noreferrer">Мемы: Memegen.link</a>
+    </footer>
+  </body>
+</html>

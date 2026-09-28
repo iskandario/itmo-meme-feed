@@ -1,0 +1,384 @@
+:root {
+  color-scheme: light;
+  --background: #f2f3f5;
+  --card: #ffffff;
+  --text: #1d1f23;
+  --muted: #71757d;
+  --line: #e3e5e8;
+  --blue: #2563eb;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: auto; }
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--background);
+  color: var(--text);
+  font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+}
+
+button, a { -webkit-tap-highlight-color: transparent; }
+a { color: inherit; }
+
+.topbar {
+  position: sticky;
+  z-index: 10;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 max(20px, calc((100% - 640px) / 2));
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 255, 255, .94);
+  backdrop-filter: blur(12px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.brand__mark {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--blue);
+  color: white;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.course { color: var(--muted); font-size: 13px; }
+
+.top-actions { display: flex; align-items: center; gap: 12px; }
+
+.add-button {
+  padding: 8px 12px;
+  border-radius: 9px;
+  background: var(--blue);
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.account {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 50%;
+  background: #e7efff;
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+main, footer {
+  width: min(100% - 28px, 600px);
+  margin-inline: auto;
+}
+
+main { padding-top: 24px; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+stream-more { display: block; }
+stream-more::part(feed) { display: grid; gap: 16px; }
+
+stream-more::part(card) {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+  box-shadow: 0 1px 2px rgba(19, 24, 33, .03);
+}
+
+stream-more::part(card-header) {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 15px 16px 12px;
+}
+
+stream-more::part(profile-link) {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  align-items: center;
+  gap: 11px;
+  color: inherit;
+  text-decoration: none;
+}
+
+stream-more::part(profile-link):hover stream-more::part(author) { color: var(--blue); }
+
+stream-more::part(avatar) {
+  display: grid;
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 50%;
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+stream-more::part(avatar-small) { width: 36px; height: 36px; font-size: 11px; }
+
+stream-more::part(identity) { min-width: 0; flex: 1; }
+stream-more::part(author) { display: block; font-size: 14px; font-weight: 700; }
+stream-more::part(meta) { display: block; color: var(--muted); font-size: 12px; }
+
+stream-more::part(more-menu) {
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--muted);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+stream-more::part(more-menu):hover { background: var(--background); }
+stream-more::part(copy) { margin: 0; padding: 0 16px 14px; font-size: 15px; }
+
+stream-more::part(media) {
+  display: grid;
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+  place-items: center;
+  border-block: 1px solid var(--line);
+  background: #e9eaec;
+}
+
+stream-more::part(image) {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+stream-more::part(actions) {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 5px 8px;
+}
+
+stream-more::part(action) {
+  min-height: 42px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+stream-more::part(action-link) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  text-decoration: none;
+}
+
+stream-more::part(action-icon) { width: 18px; height: 18px; }
+
+stream-more::part(action):hover { background: var(--background); color: var(--text); }
+stream-more::part(action-liked) { background: #fff0f2; color: #d93655; }
+stream-more::part(action-reposted) { background: #edf8f2; color: #168652; }
+
+stream-more::part(loader) {
+  display: grid;
+  min-height: 110px;
+  place-items: center;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+}
+
+stream-more::part(spinner) {
+  width: 24px;
+  height: 24px;
+  margin: 0 auto 9px;
+  border: 2px solid #d8dbe0;
+  border-top-color: var(--blue);
+  border-radius: 50%;
+  animation: spin .75s linear infinite;
+}
+
+stream-more::part(retry) {
+  padding: 9px 15px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--blue);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+stream-more::part(page-title) {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 54px;
+  margin-bottom: 16px;
+}
+
+stream-more::part(page-title) h1 { margin: 0; font-size: 20px; }
+
+stream-more::part(back) {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--text);
+  font-size: 24px;
+  text-decoration: none;
+}
+
+stream-more::part(back):hover { background: #e4e6e9; }
+
+stream-more::part(card-detail) { margin-bottom: 16px; }
+
+stream-more::part(comments) {
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+}
+
+stream-more::part(section-title) { margin: 0; padding: 15px 16px; border-bottom: 1px solid var(--line); font-size: 15px; }
+
+stream-more::part(comment) {
+  display: flex;
+  gap: 11px;
+  padding: 15px 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+stream-more::part(comment):last-child { border-bottom: 0; }
+stream-more::part(comment-profile) { flex: 0 0 auto; text-decoration: none; }
+stream-more::part(comment-body) { min-width: 0; }
+stream-more::part(comment-author) { color: var(--text); font-size: 13px; font-weight: 700; text-decoration: none; }
+stream-more::part(comment-author):hover { color: var(--blue); }
+stream-more::part(comment-text) { margin: 3px 0 4px; }
+stream-more::part(comment-time) { color: var(--muted); font-size: 11px; }
+
+stream-more::part(profile) {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+}
+
+stream-more::part(profile-info) { min-width: 0; flex: 1; }
+stream-more::part(profile-name) { margin: 0; font-size: 19px; }
+stream-more::part(profile-bio) { margin: 3px 0 0; color: var(--muted); font-size: 13px; }
+
+stream-more::part(primary-button) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 13px;
+  border-radius: 9px;
+  background: var(--blue);
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+stream-more::part(tabs) { display: grid; grid-template-columns: 1fr 1fr; margin: 18px 0 12px; border-bottom: 1px solid var(--line); }
+stream-more::part(tab) { padding: 11px; border: 0; border-bottom: 2px solid transparent; background: transparent; color: var(--muted); font: inherit; cursor: pointer; }
+stream-more::part(tab)[aria-selected="true"] { border-bottom-color: var(--blue); color: var(--blue); font-weight: 600; }
+stream-more::part(profile-posts) { display: grid; gap: 16px; }
+
+stream-more::part(form) {
+  display: grid;
+  gap: 18px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+}
+
+stream-more::part(form-author) { display: flex; align-items: center; gap: 11px; }
+stream-more::part(form-author) div { display: grid; }
+stream-more::part(form-author) small { color: var(--muted); }
+
+stream-more::part(field) { display: grid; gap: 7px; font-size: 13px; font-weight: 600; }
+stream-more::part(field) textarea { min-height: 105px; resize: vertical; padding: 11px 12px; border: 1px solid #cfd2d7; border-radius: 9px; font: inherit; }
+stream-more::part(field) textarea:focus { outline: 2px solid #bed1ff; border-color: var(--blue); }
+
+stream-more::part(upload) { display: grid; gap: 2px; padding: 22px; border: 1px dashed #b8bdc6; border-radius: 10px; background: #f8f9fa; cursor: pointer; text-align: center; }
+stream-more::part(upload) span { color: var(--muted); font-size: 12px; }
+stream-more::part(upload) input { margin: 12px auto 0; max-width: 100%; }
+stream-more::part(upload-preview) { width: 100%; max-height: 450px; object-fit: contain; border-radius: 10px; background: #eee; }
+stream-more::part(form-error) { min-height: 20px; margin: 0; color: #bf2f46; font-size: 13px; }
+stream-more::part(submit) { min-height: 44px; border: 0; border-radius: 9px; background: var(--blue); color: white; font: inherit; font-weight: 600; cursor: pointer; }
+stream-more::part(submit):disabled { opacity: .6; cursor: wait; }
+
+stream-more::part(page-loading) { display: grid; min-height: 300px; place-items: center; color: var(--muted); text-align: center; }
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 0 24px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+@keyframes spin { to { transform: rotate(1turn); } }
+
+@media (max-width: 540px) {
+  .topbar { padding-inline: 14px; }
+  .course { display: none; }
+  .top-actions { gap: 8px; }
+  .add-button { padding: 7px 9px; font-size: 12px; }
+  main { width: 100%; padding-top: 0; }
+  stream-more::part(feed) { gap: 10px; }
+  stream-more::part(card) { border-inline: 0; border-radius: 0; }
+  stream-more::part(page-title) { padding-inline: 10px; margin-bottom: 0; background: white; border-bottom: 1px solid var(--line); }
+  stream-more::part(comments), stream-more::part(profile), stream-more::part(form) { border-inline: 0; border-radius: 0; }
+  stream-more::part(profile) { align-items: flex-start; padding: 16px; }
+  stream-more::part(primary-button) { padding: 8px 10px; }
+  stream-more::part(tabs) { margin-top: 10px; background: white; }
+  stream-more::part(profile-posts) { gap: 10px; }
+  footer { width: calc(100% - 28px); flex-direction: column; gap: 4px; }
+}
+
+@media (max-width: 380px) {
+  .brand > span:last-child { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; }
+}
