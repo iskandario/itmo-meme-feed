@@ -164,6 +164,7 @@ stream-more::part(more-menu):hover { background: var(--background); }
 stream-more::part(copy) { margin: 0; padding: 0 16px 14px; font-size: 15px; }
 
 stream-more::part(media) {
+  position: relative;
   display: grid;
   overflow: hidden;
   aspect-ratio: 3 / 2;
@@ -171,6 +172,25 @@ stream-more::part(media) {
   border-block: 1px solid var(--line);
   background: #e9eaec;
 }
+
+stream-more::part(meme-caption) {
+  position: absolute;
+  z-index: 1;
+  left: 12px;
+  right: 12px;
+  color: white;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: clamp(19px, 4vw, 34px);
+  line-height: 1.06;
+  letter-spacing: .02em;
+  text-align: center;
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 3px 7px rgba(0,0,0,.8);
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+stream-more::part(meme-caption-top) { top: 14px; }
+stream-more::part(meme-caption-bottom) { bottom: 14px; }
 
 stream-more::part(image) {
   display: block;

@@ -21,14 +21,21 @@ const profiles = [
 ];
 
 const memes = [
-  { template: 'drake', lines: ['делать лабораторную заранее', 'открыть задание в ночь перед сдачей'], caption: 'Каждый раз один и тот же план.', comments: ['У меня этот план повторяется каждую неделю.', 'Первый вариант звучит слишком рискованно.', 'Главное — не забыть сохранить файл.', 'Узнаю расписание по одной картинке.'] },
-  { template: 'db', lines: ['я', 'ещё одна серия', 'лабораторная'], caption: 'Приоритеты расставлены правильно.', comments: ['Серия хотя бы закончится вовремя.', 'Лабораторная всё видит.', 'Завтра точно начну с задания.', 'Так и пропал весь вечер.'] },
-  { template: 'fine', lines: ['сервер упал', 'за пять минут до показа'], caption: 'Главное — сохранять спокойствие.', comments: ['Перезапуск перед демонстрацией — классика.', 'А локально всё работало.', 'В этот момент особенно приятно видеть резервную копию.', 'Пять минут — ещё много времени.'] },
-  { template: 'gru', lines: ['написать код', 'запустить тесты', 'увидеть 47 ошибок', '47 ошибок'], caption: 'План был хороший. Исполнение тоже интересное.', comments: ['Зато тесты действительно что-то проверяют.', 'Первая ошибка обычно самая важная.', 'После исправления станет 48.', 'Пора читать сообщение целиком.'] },
-  { template: 'cmm', lines: ['если работает — не трогай'], caption: 'Правило, которое понимаешь только после первого курса.', comments: ['Но сначала всё равно сделаем небольшой рефакторинг.', 'Нужен комментарий, почему это нельзя трогать.', 'История изменений подтверждает.', 'Работает — уже документация.'] },
-  { template: 'doge', lines: ['код на паре', 'тот же код дома'], caption: 'Среда выполнения имеет значение.', comments: ['Наверняка дело в одной переменной окружения.', 'На компьютере преподавателя будет третий вариант.', 'Проверено на двух устройствах — две разные ошибки.', 'Контейнеры были придуманы именно после этого.'] },
-  { template: 'disastergirl', lines: ['я просто поменял одну строчку', 'проект'], caption: 'Небольшой рефакторинг прошёл успешно.', comments: ['Эта строчка явно была несущей.', 'Хорошо, что есть история изменений.', 'Откатываем и делаем вид, что ничего не было.', 'Зато теперь понятно, зачем нужны тесты.'] },
-  { template: 'astronaut', lines: ['это всё дедлайн?', 'всегда был дедлайн', 'подожди', 'что?'], caption: 'Календарь снова подаёт сигналы.', comments: ['Уведомление пришло очень вовремя — вчера.', 'Открыл календарь и сразу закрыл.', 'Зато даты теперь выучены наизусть.', 'До полуночи технически ещё сегодня.'] }
+  { template: 'drake', lines: ['писать лабораторную по плану', 'переименовать final_final2 в ГОТОВО'], caption: 'Система контроля версий для сильных духом.', comments: ['Главное потом не открыть final_final2_точно.', 'Git молча вышел из чата.', 'У меня ещё есть версия «последняя новая».', 'Архив ГОТОВО.zip уже готов.'] },
+  { template: 'db', lines: ['я в 23:58', 'поменять шрифт', 'отправить работу'], caption: 'Когда до дедлайна две минуты, но душа просит дизайна.', comments: ['Шрифт действительно всё решал.', 'Преподаватель оценит кернинг.', 'Отправка — задача для будущего меня.', 'Ещё тень у кнопки поправь.'] },
+  { template: 'fine', lines: ['продакшен горит', 'зато линтер зелёный'], caption: 'Приоритеты команды расставлены.', comments: ['Ноль предупреждений — ноль проблем.', 'Пожар соответствует кодстайлу.', 'Сначала форматирование, потом эвакуация.', 'ESLint спас всё, что мог.'] },
+  { template: 'gru', lines: ['исправить один баг', 'удалить одну строчку', 'сломать авторизацию', 'это была важная строчка'], caption: 'Небольшой фикс уверенно стал новой лабораторной.', comments: ['Строчка оказалась несущей.', 'Зато баг действительно исчез.', 'Вместе со всем приложением.', 'Возвращаем и больше не смотрим на неё.'] },
+  { template: 'cmm', lines: ['«у меня работает» — это не тестирование'], caption: 'Непопулярное мнение перед показом лабораторной.', comments: ['На ноутбуке преподавателя начинается интеграционное тестирование.', 'А скриншот считается?', 'Главное произнести это уверенно.', 'localhost подтвердил качество.'] },
+  { template: 'doge', lines: ['мой код в голове', 'мой код после npm install'], caption: 'Зависимости внесли небольшие уточнения.', comments: ['Всего 847 пакетов для одной кнопки.', 'Папка node_modules уже тяжелее проекта.', 'Удалить lock-файл — и в бой.', 'Уязвимости только средней тяжести, живём.'] },
+  { template: 'disastergirl', lines: ['я: обновлю одну зависимость', 'package-lock на 14 тысяч строк'], caption: 'Очень локальное изменение.', comments: ['Ревью займёт пару минут.', 'Dependabot одобряет этот хаос.', 'Коммит лучше назвать fix.', 'Главное не смотреть diff.'] },
+  { template: 'astronaut', lines: ['это костыль?', 'весь проект — костыль', 'подожди', 'всегда был'], caption: 'Архитектурное ревью завершено.', comments: ['Зато держится.', 'Не костыль, а временный адаптер.', 'Временный с первого курса.', 'Документация на него потеряна.'] },
+  { template: 'aag', lines: ['почему CSS съехал?', 'ретроградный margin'], caption: 'Причина найдена, доказательства не требуются.', comments: ['Попробуй ещё очистить чакры браузера.', 'Mercury in flexbox.', 'Поставь display: block и не спрашивай.', 'На моей натальной карте ровно.'] },
+  { template: 'balloon', lines: ['я', 'ещё один быстрый фикс', 'лечь спать до трёх'], caption: 'Сон снова не прошёл code review.', comments: ['Этот фикс точно последний.', 'Предыдущий последний был десять минут назад.', 'Спать можно после деплоя.', 'А после деплоя уже нельзя.'] },
+  { template: 'fry', lines: ['не уверен, баг ли это', 'или скрытая возможность'], caption: 'Отдел маркетинга уже выбрал второй вариант.', comments: ['Запиши в документацию — станет фичей.', 'Пользователи просто неправильно пользуются.', 'Работает не по ТЗ, зато стабильно.', 'Roadmap обновлён задним числом.'] },
+  { template: 'mordor', lines: ['нельзя просто взять', 'и выйти из vim'], caption: 'Легенда гласит, что он всё ещё ищет кнопку.', comments: ['Esc уже стёрся.', 'Попробуй выключить компьютер.', 'Сначала нужно стать достойным.', 'На экзамене интернет запрещён, vim остаётся.'] },
+  { template: 'oprah', lines: ['тебе дедлайн', 'и тебе дедлайн'], caption: 'Преподаватель щедро раздаёт возможности проявить себя.', comments: ['А можно вместо дедлайна автомат?', 'Всем досталось, никто не ушёл обиженным.', 'Подарок нельзя передарить.', 'Следующий дедлайн уже в пути.'] },
+  { template: 'pigeon', lines: ['студент', 'console.log в каждой строке', 'это отладчик?'], caption: 'Профессиональные инструменты требуют профессионального подхода.', comments: ['Ещё alert для надёжности.', 'Если логов много, ошибка испугается.', 'Debugger поставил дизлайк.', 'В проде тоже оставим, вдруг пригодится.'] },
+  { template: 'grumpycat', lines: ['собралось с первого раза', 'подозрительно'], caption: 'Опыт подсказывает: радоваться рано.', comments: ['Тесты точно запускались?', 'Проверь, тот ли проект открыл.', 'Сейчас выяснится, что это старая ветка.', 'Ошибка просто готовит эффектное появление.'] }
 ];
 
 const postStore = new Map();
@@ -81,10 +88,16 @@ function makePost(id, forcedProfile, forcedMemeIndex) {
     if (memeIndex === 5) lines[1] = `тот же код дома · запуск ${round + 1}`;
     if (memeIndex === 6) lines[0] = `я поменял ${round + 1} строчки`;
     if (memeIndex === 7) lines[0] = `это дедлайн №${round + 1}?`;
+    if (memeIndex === 8) lines[1] = `ретроградный margin №${round + 1}`;
+    if (memeIndex === 9) lines[1] = `ещё один быстрый фикс №${round + 1}`;
+    if (memeIndex === 10) lines[1] = `или скрытая возможность №${round + 1}`;
+    if (memeIndex === 11) lines[1] = `и выйти из vim с попытки №${round + 1}`;
+    if (memeIndex === 12) lines[1] = `и тебе дедлайн №${round + 1}`;
+    if (memeIndex === 13) lines[1] = `console.log v${round + 1}`;
+    if (memeIndex === 14) lines[0] = `собралось с попытки №${round + 1}`;
   }
-  const imageLines = lines.map(line => encodeURIComponent(line));
   const comments = commentsFor(Number(id), memeIndex, author.id);
-  const remoteImage = `https://api.memegen.link/images/${meme.template}/${imageLines.join('/')}.webp?font=notosans&width=640`;
+  const remoteImage = `https://api.memegen.link/images/${meme.template}.jpg`;
   const post = {
     id: String(id),
     author: publicProfile(author),
@@ -93,6 +106,7 @@ function makePost(id, forcedProfile, forcedMemeIndex) {
     image: `/api/memes/${id}`,
     remoteImage,
     imageAlt: `Мем: ${lines.join(' — ')}`,
+    memeLines: lines,
     memeIndex,
     comments,
     stats: {
@@ -133,6 +147,13 @@ async function serveMeme(response, id) {
   }
 }
 
+async function warmMemes(posts) {
+  for (const post of posts) {
+    if (!post.remoteImage) continue;
+    try { await loadMeme(post); } catch { /* The browser fallback remains available. */ }
+  }
+}
+
 async function* endlessPosts(signal, includeUploads) {
   if (includeUploads) {
     for (const post of uploadedPosts.slice().reverse()) yield post;
@@ -159,9 +180,7 @@ function apiFeed(request, response, url) {
           if (++sent >= limit) break;
         }
         streamController.close();
-        for (let offset = 0; offset < limit + 2; offset += 1) {
-          loadMeme(makePost(nextId + offset)).catch(() => {});
-        }
+        void warmMemes(Array.from({ length: limit + 2 }, (_, offset) => makePost(nextId + offset)));
       } catch (error) {
         streamController.error(error);
       }
@@ -277,7 +296,7 @@ const server = http.createServer(async (request, response) => {
     const profile = profiles.find(item => item.id === profileMatch[1]);
     if (!profile) return sendJson(response, 404, { error: 'Профиль не найден.' });
     const data = profileData(profile);
-    await Promise.allSettled([...data.posts, ...data.reposts].filter(post => post.remoteImage).map(loadMeme));
+    await warmMemes([...data.posts, ...data.reposts]);
     return sendJson(response, 200, data);
   }
 
@@ -287,7 +306,7 @@ const server = http.createServer(async (request, response) => {
 
 server.listen(port, () => {
   console.log(`Лента мемов запущена: http://localhost:${port}`);
-  for (let id = 1; id <= 8; id += 1) loadMeme(makePost(id)).catch(() => {});
+  void warmMemes(Array.from({ length: 5 }, (_, index) => makePost(index + 1)));
 });
 function shutdown() { server.close(() => process.exit(0)); }
 process.on('SIGINT', shutdown);

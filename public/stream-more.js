@@ -155,6 +155,16 @@ class StreamMore extends HTMLElement {
     image.decoding = 'async';
     image.addEventListener('error', () => { image.src = this.#fallbackImage(); }, { once: true });
     media.append(image);
+    if (Array.isArray(post.memeLines) && post.memeLines.length) {
+      const split = Math.ceil(post.memeLines.length / 2);
+      const topCaption = document.createElement('span');
+      topCaption.setAttribute('part', 'meme-caption meme-caption-top');
+      topCaption.textContent = post.memeLines.slice(0, split).join(' · ');
+      const bottomCaption = document.createElement('span');
+      bottomCaption.setAttribute('part', 'meme-caption meme-caption-bottom');
+      bottomCaption.textContent = post.memeLines.slice(split).join(' · ');
+      media.append(topCaption, bottomCaption);
+    }
 
     const actions = document.createElement('div');
     actions.setAttribute('part', 'actions');
